@@ -55,6 +55,7 @@
     padding-left: 20px;
     margin-bottom: 25px;
     position: relative;
+    height: 60px;
 }
 
 .row::before {
@@ -79,6 +80,7 @@ input {
     outline: none;
     background: transparent;
     padding: 10px;
+
 }
 
 button {
@@ -230,23 +232,7 @@ ul li span:hover {
     scrollbar-darkshadow-color: #f1f1f1; 
   }
   
-
-
-/* Votre CSS existant */
-
-/* Pour les écrans d'ordinateur */
-@media only screen and (min-width: 600px) {
-    .container {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .task-text {
-        font-size: 1.2em;
-    }
-}
-
-@media only screen and (max-width: 599px) {
+  @media only screen and (max-width: 599px) {
     .todoapp {
         display: flex;
         flex-direction: column;
@@ -254,13 +240,13 @@ ul li span:hover {
         margin-bottom: 10px;
         justify-content: center;
     }
+
     .row {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-bottom: 10px;
         justify-content: center;
-        
     }
 
     .category-filters {
@@ -269,29 +255,17 @@ ul li span:hover {
         align-items: center;
         margin-bottom: 50px;
         justify-content: center;
-
     }
 
     .row button {
-  
-            margin-top: 20px; 
-        }
-    
+        margin-top: 20px; 
     }
 
     .row select {
-        margin-top: 20px; 
-
-
-    }
-
-
-    #addTaskButton {
-        margin-top: 10px; /* Ajoutez une marge en haut du bouton pour l'éloigner de l'input */
+        margin-top: 20px;
     }
 
     .category-filters > button:not(:last-child) {
-        margin-bottom: 10px; /* Ajoute de l'espace en bas de chaque bouton sauf le dernier */
+        margin-bottom: 10px;
     }
-
 }
