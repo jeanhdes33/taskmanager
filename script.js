@@ -136,7 +136,7 @@ const filterTasks = async (category) => {
                 }
             });
 
-            errorMessage.textContent = ""; // Efface le message d'erreur s'il y en avait un précédemment.
+            errorMessage.textContent = ""; 
             resolve("Filtrage réussi !");
         } else {
             errorMessage.textContent = "Aucune tâche dans cette catégorie n'existe";
@@ -152,6 +152,6 @@ const resetFilters = () => {
     });
 
     const errorMessage = document.getElementById('error-message');
-    errorMessage.textContent = ""; // Efface le message d'erreur.
+    errorMessage.textContent = ""; 
 };
 

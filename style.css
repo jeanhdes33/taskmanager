@@ -201,3 +201,32 @@ ul li span:hover {
     font-size: 18px;
     margin-top: 10px;
 }
+
+
+::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #3498db; 
+    border-radius: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+
+  scrollbar-color: #3498db #f1f1f1;
+  scrollbar-width: thin;
+  
+
+  body {
+    scrollbar-face-color: #3498db; 
+    scrollbar-highlight-color: #f1f1f1; 
+    scrollbar-shadow-color: #f1f1f1; 
+    scrollbar-3dlight-color: #f1f1f1; 
+    scrollbar-arrow-color: #3498db; 
+    scrollbar-darkshadow-color: #f1f1f1; 
+  }
+  
