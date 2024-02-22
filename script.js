@@ -24,10 +24,12 @@ const addTask = () => {
 
     const editSymbol = document.createElement("span");
     editSymbol.innerHTML = "\u21BA";
-    editSymbol.addEventListener("click", () => editTask(textDiv));
+    editSymbol.classList.add("edit-symbol");
+    editSymbol.addEventListener("click", () => editTask(li));
 
     const deleteSymbol = document.createElement("span");
     deleteSymbol.innerHTML = "\u00d7";
+    deleteSymbol.classList.add("delete-symbol");
     deleteSymbol.addEventListener("click", () => removeTask(li));
 
     symbolsDiv.appendChild(editSymbol);
@@ -47,22 +49,27 @@ const removeTask = (task) => {
     savedata();
 };
 
-const editTask = (textContainer) => {
-    const newText = prompt("Modifier la tâche:", textContainer.textContent);
+const editTask = (task) => {
+    const textContainer = task.querySelector(".task-text");
+    const currentText = textContainer.textContent;
+    const categoryIndex = currentText.lastIndexOf('-');
+    
+    const newText = prompt("Modifier la tâche:", currentText.substring(0, categoryIndex).trim());
+    
     if (newText !== null) {
-        textContainer.textContent = newText;
+        textContainer.textContent = `${newText} - ${currentText.substring(categoryIndex + 1).trim()}`;
         savedata();
     }
 };
 
 listContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("task-text")) {
-        const taskText = e.target;
-        taskText.parentElement.classList.toggle("checked");
+        const task = e.target.parentElement;
+        task.classList.toggle("checked");
         savedata();
     } else if (e.target.classList.contains("edit-symbol")) {
         const task = e.target.closest("li");
-        editTask(task.querySelector(".task-text"));
+        editTask(task);
     } else if (e.target.classList.contains("delete-symbol")) {
         const task = e.target.closest("li");
         removeTask(task);
@@ -80,6 +87,17 @@ const showtask = () => {
     tasks.forEach((task) => {
         const { dataset: { category } } = task;
         task.setAttribute('category', category);
+        
+        const deleteSymbol = task.querySelector(".delete-symbol");
+        const editSymbol = task.querySelector(".edit-symbol");
+
+        if (deleteSymbol) {
+            deleteSymbol.addEventListener("click", () => removeTask(task));
+        }
+        
+        if (editSymbol) {
+            editSymbol.addEventListener("click", () => editTask(task));
+        }
     });
 };
 
@@ -136,3 +154,4 @@ const resetFilters = () => {
     const errorMessage = document.getElementById('error-message');
     errorMessage.textContent = ""; // Efface le message d'erreur.
 };
+

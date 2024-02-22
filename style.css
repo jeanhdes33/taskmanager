@@ -29,6 +29,9 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
+    max-height: 450px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .todoapp h2 {
@@ -51,6 +54,23 @@
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
+    position: relative;
+}
+
+.row::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+    border-radius: 40px;
+    z-index: -1;
+}
+
+.scrolled .row {
+    transform: translateY(50px);
 }
 
 input {
@@ -94,7 +114,7 @@ ul li::before {
     background-position: center;
 }
 
-ul li.checked .task-text{
+ul li.checked .task-text {
     color: #555;
     text-decoration: line-through;
 }
@@ -161,8 +181,7 @@ ul li span:hover {
     outline: none;
     background: transparent;
     padding: 10px;
-    margin-right: 10px; /* Add margin to separate it from the Add button */
-
+    margin-right: 10px;
 }
 
 #categorySelect,
@@ -177,7 +196,7 @@ ul li span:hover {
     background: #edeef0;
 }
 
-.error-message{
+.error-message {
     color: red;
     font-size: 18px;
     margin-top: 10px;
