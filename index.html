@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="darkModeToggle">Activer/Désactiver le mode sombre</button>
+        
+        <div class="todoapp">
+            <h2>Task Manager <img src="icon.png"></h2>
+            <div class="row">
+                <input type="text" id="inputbox" placeholder="Ajouter votre texte">
+               
+                <select id="categorySelect">
+                    <option value="travail">Travail</option>
+                    <option value="personnel">Personnel</option>
+                    <option value="achats">Achats</option>
+                </select>
+                <button onclick="addTask()">Ajouter</button>
+              
+
+            </div>
+            <ul id="listcontainer"></ul>
+        </div>
+        <div class="category-filters">
+            <button onclick="filterTasks('travail')">Travail</button>
+            <button onclick="filterTasks('personnel')">Personnel</button>
+            <button onclick="filterTasks('achats')">Achats</button>
+            <button onclick="resetFilters()">Toutes les catégories</button>
+        </div>
+        <div id="error-message" class="error-message"></div>
+    </div>
+    <script src="script.js"></script>
+
+   
+</body>
+</html>
